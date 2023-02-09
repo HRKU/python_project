@@ -42,7 +42,7 @@ Start Content
         </div>
         <div class="col-md">
           <div class="bannerContent">
-            <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title}}, <br> a {{me.userprofile.title}} </br></h1>
+            <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title}}, <br> an {{me.userprofile.title}} </br></h1>
             <p style="font-family: helvetica,Arial,sans-serif;">{{me.userprofile.bio}}</p>
             <div class="bannerBtnCol">
               <div class="row">
@@ -77,7 +77,7 @@ Start Content
                 <img src="{{sk.image.url}}" alt="...">
               </div>
               {% endif %}
-              <span class="ksText">{{sk.name}}</span>
+              <!-- <span class="ksText">{{sk.name}}</span> -->
             </div>
             {% endif %}
             {% endfor %}

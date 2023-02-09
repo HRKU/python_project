@@ -303,10 +303,11 @@ a, .btn {
   padding: 35px 0;
   background-color: #000;
 }
-.ksText {
+/* .ksText {
 	display: block;
 	padding-top: 10px;
-}
+  
+} */
 .keySkillCard + .keySkillCard {
   padding-top: 25px;
 }
@@ -467,7 +468,7 @@ body.navToggleActive {
 .footerCol {
   padding: 50px 0;
   text-align: center;
-  background-color: white;
+  background-color: #2F3136;
 }
 .socialCol li {
   display: inline-block;
@@ -487,7 +488,7 @@ body.navToggleActive {
 }
 .copyrightCol p {
 	margin: 0;
-  color: black;
+  color: white;
 }
 
 
