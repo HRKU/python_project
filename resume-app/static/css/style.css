@@ -465,6 +465,41 @@ body.navToggleActive {
 
 
 /* footer */
+a.button {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: #2F3136;
+  transition: 0.2s;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  color: white;
+  font-size: small;
+
+}
+/* a.button .material-icons {
+  font-size: 24px;
+  transition: 0.2s;
+} */
+a.button .label-hidden {
+  max-width: 0;
+  opacity: 0;
+  max-height: 1em;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+a.button:hover .label-hidden {
+  max-width: 200px;
+  margin-left: 8px;
+  opacity: 1;
+}
+
+
 .footerCol {
   padding: 50px 0;
   text-align: center;
