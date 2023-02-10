@@ -43,7 +43,36 @@ Start Content
         <div class="col-md">
           <div class="bannerContent">
             <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title}}, <br> an {{me.userprofile.title}} </br></h1>
-            <p style="font-family: helvetica,Arial,sans-serif;">{{me.userprofile.bio}}</p>
+            <p style="font-family: helvetica,Arial,sans-serif; text-align: justify;">
+              <!-- {{me.userprofile.bio}} -->
+              Strong design and integration skills, as well as a natural aptitude for problem-solving.
+<br>
+              <span>Proficient in full stack technologies:- </span>
+              <br>
+                 <span style="margin-left: 20px;"> Angular | Node.js | Express.js | MongoDB Atlas| Django |
+                 <span style="margin-left: 20px;"> React.js | React Native | NoSQL | </span>
+                  </span>
+              <br>
+              <br>
+              <span>Programming Languages include:-</span>
+              <br>
+              <span style="margin-left: 20px;">
+                  Python | Java | Embedded C++ ( Used in Arduino IDE) |
+              </span>
+              <br>
+              <br>
+                IDE's used :-
+                <br>
+                <span style="margin-left: 20px;">
+                  VSCode | Intellige | Eclipse | Sublime Text | Notepad ++ | 
+                  <br>
+                  <span style="margin-left: 20px;"> IDE | PyCharm | Anaconda | </span>
+                  <br>
+                </span>
+                <br>
+                Enthusiastic about beginning and carrying out new projects.
+                I'm looking for work as a data engineer, full stack developer, cloud domain, or entry-level software developer with a respected, tech-focused organization.
+            </p>
             <div class="bannerBtnCol">
               <div class="row">
                 <div class="col-auto">
@@ -67,7 +96,7 @@ Start Content
     <div class="container">
       <div class="row">
         <div class="col-md-auto">
-          <div class="keySkillCol">
+          <!-- <div class="keySkillCol">
             <h4 class="smTitle pb-3">Key Skills</h4>
             {% for sk in me.userprofile.skills.all %}
             {% if sk.is_key_skill %}
@@ -77,11 +106,11 @@ Start Content
                 <img src="{{sk.image.url}}" alt="...">
               </div>
               {% endif %}
-              <!-- <span class="ksText">{{sk.name}}</span> -->
+              <span class="ksText">{{sk.name}}</span>
             </div>
             {% endif %}
             {% endfor %}
-          </div>
+          </div> -->
         </div>
         <div class="col-md">
           <h4 class="smTitle pb-3">Coding Skills</h4>

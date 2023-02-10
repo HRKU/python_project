@@ -303,6 +303,10 @@ a, .btn {
   padding: 35px 0;
   background-color: #000;
 }
+.ksIconCol{
+  width: 20px;
+  height: 45px;
+}
 /* .ksText {
 	display: block;
 	padding-top: 10px;
@@ -323,11 +327,11 @@ a, .btn {
 .progress.progressStyle {
 	height: 8px;
 	padding: 1px;
-	background-color: var(--secondaryColor);
+	background-color: #2f3136;
 	border-radius: 3px;
 }
 .progressStyle .progress-bar {
-	background-color: #fff;
+	background-color: rgb(7 144 182);
 	border-radius: 3px;
 }
 .progressCol + .progressCol {
