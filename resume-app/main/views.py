@@ -5,13 +5,15 @@ from .models import (
 		Blog,
 		Portfolio,
 		Testimonial,
-		Certificate
+		Certificate,
+		Work_Experience
 	)
 
 from django.views import generic
 
 
 from . forms import ContactForm
+
 
 
 class IndexView(generic.TemplateView):
@@ -24,11 +26,13 @@ class IndexView(generic.TemplateView):
 		certificates = Certificate.objects.filter(is_active=True)
 		blogs = Blog.objects.filter(is_active=True)
 		portfolio = Portfolio.objects.filter(is_active=True)
+		work_experience = Work_Experience.objects.filter(is_active = True)
 		
 		context["testimonials"] = testimonials
 		context["certificates"] = certificates
 		context["blogs"] = blogs
 		context["portfolio"] = portfolio
+		context["work_experience"] = work_experience
 		return context
 
 
@@ -68,3 +72,15 @@ class BlogView(generic.ListView):
 class BlogDetailView(generic.DetailView):
 	model = Blog
 	template_name = "main/blog-detail.html"
+
+class Work_Experience_View(generic.ListView):
+	template_name = "main/work_exp.html"
+	model = Work_Experience
+	paginate_by = 10
+
+	def get_queryset(self):
+		return super().get_queryset().filter(is_active=True)
+
+class Work_Experience_View_DetailView(generic.DetailView):
+	model = Work_Experience
+	template_name = "main/work_exp_details.html"

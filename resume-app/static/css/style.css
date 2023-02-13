@@ -15,6 +15,34 @@ font-family: 'Heebo', sans-serif; */
   --black: 900;
   --lightBg: #F1F1F1;
 }
+
+/* Custom CSS */
+@media(max-width:726px){
+  codersrank-education{
+    --grid-columns: 1;
+  }
+}
+codersrank-work-experience{
+  --grid-columns: 1;
+  --preloader-color: #70cbe4;
+}
+codersrank-education {
+  --grid-columns: 3;
+  /* --certificate-link-text-color: white; */
+}
+
+.cardStyle_skills_chart{
+  padding: 25px;
+  background: #2f3136;  height: 100%;
+  border-radius: 8px;
+}
+.cardStyle_certificate{
+  background-color: #2f3136 !important;
+  height: 100%;
+  border-radius: 8px;
+  padding: 25px;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -304,8 +332,15 @@ a, .btn {
   background-color: #000;
 }
 .ksIconCol{
-  width: 20px;
+  
   height: 45px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.img_skill{
+  width: auto;
 }
 /* .ksText {
 	display: block;
@@ -486,6 +521,23 @@ a.button {
   font-size: small;
 
 }
+a.button_index {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  padding: 4px;
+  border-radius: 8px;
+  background-color: black;
+  transition: 0.2s;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  color: white;
+  font-size: small;
+
+}
 /* a.button .material-icons {
   font-size: 24px;
   transition: 0.2s;
@@ -498,6 +550,18 @@ a.button .label-hidden {
   transition: 0.2s;
 }
 a.button:hover .label-hidden {
+  max-width: 200px;
+  margin-left: 8px;
+  opacity: 1;
+}
+a.button_index .label-hidden {
+  max-width: 0;
+  opacity: 0;
+  max-height: 1em;
+  white-space: nowrap;
+  transition: 0.2s;
+}
+a.button_index:hover .label-hidden {
   max-width: 200px;
   margin-left: 8px;
   opacity: 1;
@@ -666,7 +730,7 @@ a.button:hover .label-hidden {
     bottom: 0;
     width: 230px;
     padding: 20px;
-    background: var(--primaryDarkColor);
+    background: #2f3136;
     z-index: 99;
     -webkit-transform: translateX(-100%);
     -ms-transform: translateX(-100%);

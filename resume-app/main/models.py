@@ -3,6 +3,35 @@ from django.contrib.auth.models import User
 from django.template.defaultfilters import slugify
 from ckeditor.fields import RichTextField
 
+class Work_Experience(models.Model):
+    class Meta():
+        verbose_name_plural = 'Work_Experiences'
+        verbose_name = 'Work_Experience'
+        ordering = ["Title"]
+    Title = models.CharField(max_length=30, blank=True, null=True)
+    Employer = models.CharField(max_length=200, blank=True, null=True)
+    # Date = models.DateTimeField(blank=True, null=True)
+    Start_Date = models.CharField(max_length=255, blank=True, null=True)
+    End_Date = models.CharField(max_length=255, blank=True, null=True)
+    City = models.CharField(max_length=255, blank=True, null=True)
+    Country = models.CharField(max_length=255, blank=True, null=True)
+    Body = RichTextField(blank=True, null=True)
+    slug = models.SlugField(null=True, blank=True)
+    Place = models.CharField(max_length=30, blank=True, null=True)
+    is_active = models.BooleanField(default=True)
+    
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.Title)
+        super(Work_Experience, self).save(*args, **kwargs)
+    def __str__(self):
+        return self.Title
+
+    def get_absolute_url(self):
+        return f"/Work_Experience/{self.slug}"
+
+
+
 
 class Skill(models.Model):
     class Meta:
@@ -13,6 +42,8 @@ class Skill(models.Model):
     score = models.IntegerField(default=80, blank=True, null=True)
     image = models.FileField(blank=True, null=True, upload_to="skills")
     is_key_skill = models.BooleanField(default=False)
+    is_code_skill = models.BooleanField(default=False)
+    
     
     def __str__(self):
         return self.name
@@ -26,7 +57,7 @@ class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     avatar = models.ImageField(blank=True, null=True, upload_to="avatar")
     title = models.CharField(max_length=200, blank=True, null=True)
-    bio = models.TextField(blank=True, null=True)
+    bio = RichTextField(blank=True, null=True)
     skills = models.ManyToManyField(Skill, blank=True)
     cv = models.FileField(blank=True, null=True, upload_to="cv")
 
@@ -147,7 +178,7 @@ class Certificate(models.Model):
         verbose_name = 'Certificate'
 
     date = models.DateTimeField(blank=True, null=True)
-    name = models.CharField(max_length=50, blank=True, null=True)
+    name = models.URLField(max_length=255, blank=True, null=True)
     title = models.CharField(max_length=200, blank=True, null=True)
     description = models.CharField(max_length=500, blank=True, null=True)
     is_active = models.BooleanField(default=True)

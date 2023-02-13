@@ -7,7 +7,8 @@ from . models import (
     Portfolio,
     Blog,
     Certificate,
-    Skill
+    Skill,
+    Work_Experience
     )
 
 
@@ -30,6 +31,11 @@ class MediaAdmin(admin.ModelAdmin):
 @admin.register(Portfolio)
 class PortfolioAdmin(admin.ModelAdmin):
     list_display = ('id','name','is_active')
+    readonly_fields = ('slug',)
+
+@admin.register(Work_Experience)
+class Work_ExperienceAdmin(admin.ModelAdmin):
+    list_display = ('id','Title','is_active')
     readonly_fields = ('slug',)
 
 @admin.register(Blog)

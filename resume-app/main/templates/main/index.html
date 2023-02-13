@@ -44,34 +44,7 @@ Start Content
           <div class="bannerContent">
             <h1 class="xlTitle pb-3">Hi, I’m {{me.first_name|title}}, <br> an {{me.userprofile.title}} </br></h1>
             <p style="font-family: helvetica,Arial,sans-serif; text-align: justify;">
-              <!-- {{me.userprofile.bio}} -->
-              Strong design and integration skills, as well as a natural aptitude for problem-solving.
-<br>
-              <span>Proficient in full stack technologies:- </span>
-              <br>
-                 <span style="margin-left: 20px;"> Angular | Node.js | Express.js | MongoDB Atlas| Django |
-                 <span style="margin-left: 20px;"> React.js | React Native | NoSQL | </span>
-                  </span>
-              <br>
-              <br>
-              <span>Programming Languages include:-</span>
-              <br>
-              <span style="margin-left: 20px;">
-                  Python | Java | Embedded C++ ( Used in Arduino IDE) |
-              </span>
-              <br>
-              <br>
-                IDE's used :-
-                <br>
-                <span style="margin-left: 20px;">
-                  VSCode | Intellige | Eclipse | Sublime Text | Notepad ++ | 
-                  <br>
-                  <span style="margin-left: 20px;"> IDE | PyCharm | Anaconda | </span>
-                  <br>
-                </span>
-                <br>
-                Enthusiastic about beginning and carrying out new projects.
-                I'm looking for work as a data engineer, full stack developer, cloud domain, or entry-level software developer with a respected, tech-focused organization.
+              {{me.userprofile.bio|safe}}
             </p>
             <div class="bannerBtnCol">
               <div class="row">
@@ -96,28 +69,31 @@ Start Content
     <div class="container">
       <div class="row">
         <div class="col-md-auto">
-          <!-- <div class="keySkillCol">
+          <div class="keySkillCol">
             <h4 class="smTitle pb-3">Key Skills</h4>
             {% for sk in me.userprofile.skills.all %}
             {% if sk.is_key_skill %}
             <div class="keySkillCard">
               {% if sk.image %}
               <div class="ksIconCol">
-                <img src="{{sk.image.url}}" alt="...">
+                <a class="button_index button-small" href="">
+                <img class="img_skill"src="{{sk.image.url}}" alt="...">
+                <span class="label-hidden ksText">{{sk.name}}</span>
+              </a>
               </div>
               {% endif %}
-              <span class="ksText">{{sk.name}}</span>
+              
             </div>
             {% endif %}
             {% endfor %}
-          </div> -->
+          </div>
         </div>
         <div class="col-md">
           <h4 class="smTitle pb-3">Coding Skills</h4>
           <div class="progressCol">
             <div class="progressCard">
               {% for sk in me.userprofile.skills.all %}
-              {% if sk.is_key_skill %}
+              {% if sk.is_code_skill %}
               <div class="progressCol">
                 <span class="progressLbl">{{sk.name}}</span>
                 <div class="row g-2 align-items-center">
@@ -142,7 +118,47 @@ Start Content
   </div>
 </section>
 
-<section>
+<!-- <section>
+  <div class="sectionSpaceSm lightBg">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+          <h4 class="smText regular">Work Experiences</h4>
+        </div>
+
+      </div>
+      <div class="sliderOuter">
+        <div class="swiper certificatesSlider">
+          <div class="swiper-wrapper">
+            {% for c in work_experience %}
+            {% if c.is_active %}
+            <div class="swiper-slide">
+              <div class="cardStyle1">
+                <h4 class="mdTitle cs1Title">
+                  <a href="javascript:void(0)">{{c.Title}}</a>
+                </h4>
+                <ul class="cardOptionCol">
+                  <li>{{c.Start_Date}}</li>
+                  <li>{{c.End_Date}}</li>
+                  
+                </ul>
+                {{c.Body|safe}}
+              </div>
+            </div>
+            {% endif %}
+            {% endfor %}
+            
+          </div>
+        </div>            
+        <div class="cert-swiper-button-next swiper-button-next swiperBtnStyle"></div>
+        <div class="cert-swiper-button-prev swiper-button-prev swiperBtnStyle"></div>
+        <div class="swiper-pagination swiperPaginationStyle posInitial"></div>
+      </div>
+    </div>
+  </div>
+</section> -->
+
+<section class="certificates_section">
   <div class="sectionSpaceSm lightBg">
     <div class="container">
       <div class="row pb-3">
@@ -157,13 +173,13 @@ Start Content
             {% for c in certificates %}
             {% if c.is_active %}
             <div class="swiper-slide">
-              <div class="cardStyle1">
+              <div class="cardStyle_certificate">
                 <h4 class="mdTitle cs1Title">
-                  <a href="javascript:void(0)">{{c.title}}</a>
+                  <a href="{{c.name}}" target="_blank" rel="noopener noreferrer">{{c.title}}</a>
                 </h4>
                 <ul class="cardOptionCol">
                   <li>{{c.date.date}}</li>
-                  <li>{{c.name|title}}</li>
+                  <!-- <li>{{c.name|title}}</li> -->
                 </ul>
                 <p>{{c.description}}</p>
               </div>
@@ -181,6 +197,71 @@ Start Content
   </div>
 </section>
 
+
+<section style="background-color: black;">
+  <div class="education">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+          <div class="cardStyle1">
+            <codersrank-education 
+            grid = "false"
+            branding = "false"
+            education = "true" 
+            education-section-title	= "Education History"
+            username="hrku"
+            certificates ="false"
+            style="color: white;"
+            >
+          </codersrank-education>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<section style="background-color: black;">
+  <div class="education">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+          <div class="cardStyle_skills_chart">
+            <h2 class="smTitle" style="color: white;">Skills Chart</h2>
+            <codersrank-skills-chart 
+            username="hrku"
+            labels="true"
+            legend="true"
+            tooltip	="true"
+            branding="false">
+          </codersrank-skills-chart>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section style="background-color: black;">
+  <div class="education">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+          <div class="cardStyle1">
+            <codersrank-work-experience 
+            username="hrku"
+            grid = "true"
+            branding = "false"
+            >
+          </codersrank-work-experience>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 <section>
   <div class="sectionSpace">
     <div class="container">
