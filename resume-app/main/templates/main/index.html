@@ -31,6 +31,8 @@ END script blocks
 Start Content
 ================================= -->
 {% block content %}
+
+<!-- Name and Bio Section With Resume Download and Contact Us -->
 <section>
   <div class="bannerSection">
     <div class="container">
@@ -63,14 +65,16 @@ Start Content
   </div>
 </section>
 <!-- <br> -->
+
+<!-- Key Skills and Coding Skills Section -->
 <section>
-  
   <div class="sectionSpace pt-0">
     <div class="container">
       <div class="row">
         <div class="col-md-auto">
+          <h4 class="smTitle pb-3">Key Skills</h4>
           <div class="keySkillCol">
-            <h4 class="smTitle pb-3">Key Skills</h4>
+            
             {% for sk in me.userprofile.skills.all %}
             {% if sk.is_key_skill %}
             <div class="keySkillCard">
@@ -88,6 +92,7 @@ Start Content
             {% endfor %}
           </div>
         </div>
+       
         <div class="col-md">
           <h4 class="smTitle pb-3">Coding Skills</h4>
           <div class="progressCol">
@@ -158,6 +163,98 @@ Start Content
   </div>
 </section> -->
 
+<!-- Work Experience History From Codersrank  -->
+
+<section style="background-color: black;">
+  <div class="education">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+         
+          <div class="cardStyle1">
+            <h2 class="smTitle" style="color: white; "><b>Professional Experience</b></h2>
+            <codersrank-work-experience 
+            username="hrku"
+            grid = "true"
+            branding = "false"
+            >
+          </codersrank-work-experience>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TimeLine From CodersRank -->
+
+<section style="background-color: black;">
+  <div class="education">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+         
+          <div class="cardStyle_skills_chart">
+            <h2 class="smTitle" style="color: white; "><b>TimeLine</b></h2>
+            <codersrank-timeline class="scroll" type="technologies" username="hrku" branding="false"></codersrank-timeline>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Education History Section  -->
+<section style="background-color: black;">
+  <div class="education">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+          <div class="cardStyle1">
+            <codersrank-education 
+            grid = "false"
+            branding = "false"
+            education = "true" 
+            education-section-title	= "Education History"
+            username="hrku"
+            certificates ="false"
+            style="color: white;"
+            >
+          </codersrank-education>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Skills Chart From CodersRank -->
+<section style="background-color: black;">
+  <div class="education">
+    <div class="container">
+      <div class="row pb-3">
+        <div class="col">
+          <div class="cardStyle_skills_chart">
+            <h2 class="smTitle" style="color: white;">Skills Chart</h2>
+            <codersrank-skills-chart 
+            username="hrku"
+            labels="true"
+            legend="true"
+            tooltip	="true"
+            branding="false">
+          </codersrank-skills-chart>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Certificates Section  -->
 <section class="certificates_section">
   <div class="sectionSpaceSm lightBg">
     <div class="container">
@@ -173,7 +270,7 @@ Start Content
             {% for c in certificates %}
             {% if c.is_active %}
             <div class="swiper-slide">
-              <div class="cardStyle_certificate">
+              <div class="cardStyle1">
                 <h4 class="mdTitle cs1Title">
                   <a href="{{c.name}}" target="_blank" rel="noopener noreferrer">{{c.title}}</a>
                 </h4>
@@ -198,70 +295,6 @@ Start Content
 </section>
 
 
-<section style="background-color: black;">
-  <div class="education">
-    <div class="container">
-      <div class="row pb-3">
-        <div class="col">
-          <div class="cardStyle1">
-            <codersrank-education 
-            grid = "false"
-            branding = "false"
-            education = "true" 
-            education-section-title	= "Education History"
-            username="hrku"
-            certificates ="false"
-            style="color: white;"
-            >
-          </codersrank-education>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-<section style="background-color: black;">
-  <div class="education">
-    <div class="container">
-      <div class="row pb-3">
-        <div class="col">
-          <div class="cardStyle_skills_chart">
-            <h2 class="smTitle" style="color: white;">Skills Chart</h2>
-            <codersrank-skills-chart 
-            username="hrku"
-            labels="true"
-            legend="true"
-            tooltip	="true"
-            branding="false">
-          </codersrank-skills-chart>
-
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<section style="background-color: black;">
-  <div class="education">
-    <div class="container">
-      <div class="row pb-3">
-        <div class="col">
-          <div class="cardStyle1">
-            <codersrank-work-experience 
-            username="hrku"
-            grid = "true"
-            branding = "false"
-            >
-          </codersrank-work-experience>
-          </div>
-
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 <section>
   <div class="sectionSpace">
     <div class="container">
