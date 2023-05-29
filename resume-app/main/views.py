@@ -49,6 +49,12 @@ class ContactView(generic.FormView):
         message = form.cleaned_data['message']
 
         # Send email
+            # Todo Added something like The subject should be new contact 
+            # form from Name of the sender 
+            # Also send the email notifying that person that mail is sent.
+            # And also a validation that the mail is valid. 
+            # Also research about risks and vulenebility issues here 
+            # The above are future scope / things to work upon.
         send_mail(
             'New Contact Form Submission',
             f'Name: {name}\nEmail: {email}\nMessage: {message}',
